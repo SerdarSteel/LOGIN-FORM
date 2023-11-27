@@ -1,0 +1,178 @@
+/*!position: relative; Benim dışımdan çıkamazsın*/
+/**position: absolute; izin istiyorum. Ama senin belirlediğin yerde */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  display: grid;
+  height: 100vh;
+  place-items: center;
+  background: linear-gradient(to right, #dfabc5 0%, #1da1f2 100%);
+}
+
+.container {
+  background-color: #fff;
+  max-width: 350px;
+  width: 100%;
+  padding: 25px 30px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.container .logo img {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  left: 70%;
+  top: 5px;
+  border: 5px solid #f7479f;
+  border-radius: 50%;
+}
+
+.container form .title {
+  font-size: 30px;
+  font-weight: 600;
+  margin: 20px 0 10px 0;
+  position: relative;
+}
+
+.container form .title::before {
+  content: "";
+  position: absolute;
+  height: 4px;
+  width: 33px;
+  bottom: 2px;
+  left: 0;
+  border-radius: 5px;
+  background-color: #1da1f2;
+}
+
+.container form .input-box {
+  width: 100%;
+  height: 45px;
+  margin-top: 25px;
+  position: relative;
+}
+
+.container form .input-box input {
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+  outline: none;
+  border: none;
+}
+
+.container form .underline::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: #ccc;
+  bottom: 0;
+  left: 0;
+}
+
+.container form .underline::after {
+    position: absolute;
+    content: '';
+    height: 2px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: red;
+    transform: scaleX(0);         /* İlk başlangıç 0 olsun. */
+    transform-origin: left ;      /* Sooldan başlasın. */
+    transition: all 0.3s ease;
+    
+}
+
+.container form .input-box input:focus ~ .underline:after,      /*! input'a tıkladığım da after kodunu çalıştır.. */
+.container form .input-box input:valid ~ .underline:after
+{
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.container form .button {
+    margin: 40px 0 20px 0;
+}
+
+.container form .input-box input[type="submit"] {
+    font-size: 17px;
+    color: #fff;
+    background-color: red;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.container form .input-box input[type="submit"]:hover {
+    color: red;
+    letter-spacing: 1px;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: rgb(179, 179, 179);
+}
+
+.container .text {
+    font-size: 14px;
+    text-align: center;
+
+}
+
+.container .github a,
+.container .twitter a,
+.container .facebook a {
+    display: block;
+    height: 45px;
+    width: 100%;
+    font-size: 15px;
+    text-decoration: none;
+    padding-left: 20px;
+    line-height: 45px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.container .github a {
+    background-color: #24292e;
+    margin: 20px 0 15px 0;
+}
+
+.container .github a:hover {
+    background-color: #6d7e8f;
+    letter-spacing: 1px;
+}
+
+.container .twitter a {
+    background: #1ad1f2;
+    margin: 20px 0 15px 0;
+}
+
+.container .twitter a:hover {
+    background: #aabbbe;
+    letter-spacing: 1px;
+
+}
+
+.container .facebook a {
+    background: #4267b2;
+    margin: 20px 0 50px 0;
+}
+
+.container .facebook a:hover {
+    background: #8797b6;
+}
+
+.container .github i,
+.container .twitter i,
+.container .facebook i {
+    padding-right: 22px;
+    font-size: 22px;
+
+}
